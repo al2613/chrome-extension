@@ -4,6 +4,7 @@ body {
 	margin: 0 auto;
 }
 
+
 .fluid-container {
 	margin: 30px;
 	text-align: center;
@@ -39,6 +40,13 @@ img {
 	display: inline-block;
 	height: 300px;
 	width: 400px;
+	margin: 5px;
+}
+
+li {
+	display: inline;
+	border-left: 3px double white;
+	padding: 5px;
 	margin: 5px;
 }
 
