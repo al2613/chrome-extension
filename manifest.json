@@ -1,7 +1,7 @@
   {
     "name": "Wanderlust",
     "description" : "The most beautiful travel destinations right in your default tab.",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author" : "Annette Lin",
     "manifest_version": 2,
     "browser_action" : {
