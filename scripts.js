@@ -28,40 +28,24 @@ $(window).on('load', function () {
 		$(imgThumb).click(function() {
 		  $(this).toggleClass("full-screen");
 		});
-
-	  /* For some reason, it displays part of of the data in console up to a certain point and throws syntax error
-	  var data = myResult.title;
-	  console.log(data);
-	  $(data).appendTo("#test");
-      	*/
      });
   });
 
-   // works just fine if I manually append the data one by one? 
-   $.ajax({
-    type:"get",
-    url: apiUrl,
-    success: function(data){
-    result="";
-    	result+= "<li>" + data['photos'].photo[0].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[1].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[2].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[3].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[4].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[5].title + "</li>"
-    	result+= "<li>" + data['photos'].photo[6].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[7].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[8].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[9].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[10].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[11].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[12].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[13].title + "</li>" 
-    	result+= "<li>" + data['photos'].photo[14].title + "</li>" 
-
-    $("#images").html(result);
-    }
-  });
+    // extract title property to show destination details 
+	$.ajax({
+	    type: 'get',
+	    url: apiUrl,
+	    success: function(data) {
+	    	const photos = data.photos.photo;
+	    	var i = 0;
+	    	photoData = "";
+	    	for (i = 0; i < photos.length; i++){
+	    		photoData += "<li>" + photos[i].title + "</li>";
+	    		console.log(photoData);
+	    	}
+	    	$('#images').html(photoData);
+	    }
+	});
 })
 
 // This will replace the 'ytplayer' element w/ the <iframe> once the player after the API code loads
